@@ -20,7 +20,7 @@ public class TemperatureConversionController {
 	public TemperatureConversion calculateTemperatureConversion(@PathVariable String from, @PathVariable String to,
 			@PathVariable BigDecimal value) {
 		
-		if(from.equals("C") && to.equals("F")){
+//		if(from.equals("C") && to.equals("F")){
 			TemperatureConversion temperatureConversion = proxy.retrieveExchangeValue(from, to);
 
 			return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
@@ -28,18 +28,18 @@ public class TemperatureConversionController {
 					temperatureConversion.getConversionAddSub(),
 					value.multiply(temperatureConversion.getConversionMultiple()).add(temperatureConversion.getConversionAddSub()),
 					temperatureConversion.getEnvironment() + " " + "feign");
-		}
-		else if(from.equals("F") && to.equals("C")){
-			TemperatureConversion temperatureConversion = proxy.retrieveExchangeValue(from, to);
-
-			return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
-					temperatureConversion.getConversionMultiple(),
-					temperatureConversion.getConversionAddSub(),
-					(value.add(temperatureConversion.getConversionAddSub()).multiply(temperatureConversion.getConversionMultiple())),
-					temperatureConversion.getEnvironment() + " " + "feign");
-		}
+//		}
+//		else if(from.equals("F") && to.equals("C")){
+//			TemperatureConversion temperatureConversion = proxy.retrieveExchangeValue(from, to);
+//
+//			return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
+//					temperatureConversion.getConversionMultiple(),
+//					temperatureConversion.getConversionAddSub(),
+//					(value.add(temperatureConversion.getConversionAddSub()).multiply(temperatureConversion.getConversionMultiple())),
+//					temperatureConversion.getEnvironment() + " " + "feign");
+//		}
 		
-		return null;
+//		return null;
 
 		
 
@@ -75,23 +75,23 @@ public class TemperatureConversionController {
 		  
 		  TemperatureConversion temperatureConversion = responseEntity.getBody();
 		  
-		  if(from.equals("C") && to.equals("F")) {
+		  //if(from.equals("C") && to.equals("F")) {
 				return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
 						temperatureConversion.getConversionMultiple(),
 						temperatureConversion.getConversionAddSub(),
 						value.multiply(temperatureConversion.getConversionMultiple()).add(temperatureConversion.getConversionAddSub()),
 						temperatureConversion.getEnvironment() + " " + "rest template");
-			}
-		  else if(from.equals("F") && to.equals("C")){
-
-				return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
-						temperatureConversion.getConversionMultiple(),
-						temperatureConversion.getConversionAddSub(),
-						(value.add(temperatureConversion.getConversionAddSub()).multiply(temperatureConversion.getConversionMultiple())),
-						temperatureConversion.getEnvironment() + " " + "rest template");
-			}
+		//	}
+//		  else if(from.equals("F") && to.equals("C")){
+//
+//				return new TemperatureConversion(temperatureConversion.getId(), from, to, value,
+//						temperatureConversion.getConversionMultiple(),
+//						temperatureConversion.getConversionAddSub(),
+//						(value.add(temperatureConversion.getConversionAddSub()).multiply(temperatureConversion.getConversionMultiple())),
+//						temperatureConversion.getEnvironment() + " " + "rest template");
+//			}
 		  
-		  return null;
+//		  return null;
 	}
 
 }
