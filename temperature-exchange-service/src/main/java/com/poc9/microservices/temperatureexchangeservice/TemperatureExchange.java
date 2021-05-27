@@ -65,8 +65,6 @@ public class TemperatureExchange {
 	public void setConversionMultiple(BigDecimal conversionMultiple) {
 		this.conversionMultiple = conversionMultiple;
 	}
-	
-	
 
 	public BigDecimal getConversionAddSub() {
 		return conversionAddSub;
